@@ -1,0 +1,15 @@
+<script src="{{global.baseUrl}}util.js"></script>
+<script src="{{global.baseUrl}}analytics.js"></script>
+<script>
+    (function(w,d,y){
+        w['YextAnalyticsObject']=y;
+        w[y]=w[y]||function(){
+        (w[y].q=w[y].q||[]).push(arguments)
+        };
+        w[y]('create', '{{businessId}}', '{{siteId}}', isStaging());
+    })(window, document, 'ya');
+    {{#if uid}}
+        ya('set', { id: '{{uid}}' })
+    {{/if}}
+    ya('pageview');
+</script>

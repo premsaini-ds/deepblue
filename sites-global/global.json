@@ -1,0 +1,13 @@
+{
+    "name": "Deep Blue Restaurants",
+    "googleApiKey": "AIzaSyDZNQlSlEIkFAct5VzUtsP4dSbvOr2bE18",
+    "homeUrl": "https://www.deepbluerestaurants.com/",
+    "baseUrl": "",
+    "notFoundTitle": "404 Page not found - Deep Blue",
+    "notFoundDescription": "404 Page not found - Deep Blue",
+    "liveApiKey": "3c6648d4fd9fba30d463103e58a83bd8",
+    "facebook_url": "https://en-gb.facebook.com/DeepBlueGB/",
+    "instagram_url": "https://www.instagram.com/deepbluegb/",
+    "twitter_url": "https://twitter.com/DeepBlueGB",
+    "privacyPolicyUrl": "https://www.deepbluerestaurants.com/privacy-policy-cookies-and-terms-conditions"
+}

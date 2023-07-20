@@ -1,0 +1,29 @@
+---
+{
+"stream":{
+   "$id":"deepbluelocation",
+   "source":"knowledgeGraph",
+   "destination":"pages",
+   "filter":{
+      "entityTypes":["location"]
+   },
+   "fields":[
+      "id",
+      "uid",
+      "meta",
+      "name",
+      "slug"
+   ],
+   "localization": {
+      "locales": ["en_GB"]
+      }
+   },
+  "urlFormat": "{{slug}}/{{name}}"
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+<body id="body" class="location-page">
+<div>Hello World</div>
+</body>
+</html>

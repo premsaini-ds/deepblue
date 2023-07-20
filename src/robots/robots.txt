@@ -1,0 +1,2 @@
+Sitemap: https://www.deepbluerestaurants.com/locations/sitemap.xml
+User-agent: /
