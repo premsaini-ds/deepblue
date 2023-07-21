@@ -12,18 +12,141 @@
       "uid",
       "meta",
       "name",
-      "slug"
+      "mainPhone",
+      "address",
+      "description",
+      "hours",
+      "photoGallery",
+      "logo",
+      "slug",
+      "googlePlaceId",
+      "geocodedCoordinate",
+      "yextDisplayCoordinate"
    ],
    "localization": {
-      "locales": ["en_GB"]
+      "locales": ["en_gb"]
       }
    },
-  "urlFormat": "{{slug}}/{{name}}"
+   "urlFormat":"{{#if slug}}{{slug}}{{else}}{{id}}-{{replace name ' ' '-'}}{{/if}}"
 }
 ---
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+   <title>Deep Blue Restaurants</title>
+   <meta name="title" content="Deep Blue Restaurants" />
+   <meta property="og:title" content="Deep Blue Restaurants" />
+   <meta name="twitter:title" content="Deep Blue Restaurants" />
+   <meta name="title" content="{{name}} | Great British Fish & Chips" />
+   <meta property="og:title" content="{{name}} | Great British Fish & Chips"  />
+   <meta name="twitter:title" content="{{name}} | Great British Fish & Chips" />
+
+   {{#if c_metaDescription}}
+   <meta name="description" content="{{c_metaDescription}}" />
+   <meta property="og:description" content="{{c_metaDescription}}" />
+   <meta name="twitter:description" content="{{c_metaDescription}}" />
+   {{else}}
+   <meta name="description" content="Visit your {{name}} at {{#if address.city}}{{address.city}}{{/if}}  for Great British Fish and Chips. Find our menu, order takeaway or collection, and more." />
+   <meta property="og:description" content="Visit your {{name}} at {{#if address.city}}{{address.city}}{{/if}}  for Great British Fish and Chips. Find our menu, order takeaway or collection, and more." />
+   <meta name="twitter:description" content="Visit your {{name}} at {{#if address.city}}{{address.city}}{{/if}}  for Great British Fish and Chips. Find our menu, order takeaway or collection, and more." />
+   {{/if}}
+
+   <link rel="canonical" href="/canonical" />
+
+   <meta name="twitter:card" content="summary">
+   <meta property="og:image" content="{{global.baseUrl}}images/answer_logo.png" />
+   <meta name="twitter:image" content="{{global.baseUrl}}images/answer_logo.png" />
+   <meta name="twitter:url" content="{{global.baseUrl}}{{#if slug}}{{slug}}{{else}}{{id}}-{{replace name " " "-"}}{{/if}}" />
+   <meta property="og:url" content="{{global.baseUrl}}{{#if slug}}{{slug}}{{else}}{{id}}-{{replace name " " "-"}}{{/if}}" />
+
+   <script type="application/ld+json">
+		{
+		 "@context": "https://schema.org",
+		 "@type": "BreadcrumbList",
+		 "itemListElement":
+		 [
+		    
+		  {{#unless @first}}
+		  {
+		  "@type": "ListItem",
+		  "position": "{{#if @last}}2{{else}}1{{/if}}",
+		  "item":
+		   {
+			 "@id": "{{global.baseUrl}}{{slug}}",
+			 "name": "{{this.name}}"
+		   }
+		  },
+		  {{/unless}}
+		  {
+		  "@type": "ListItem",
+		  "position": 3,
+		  "item":
+		   {
+			 "@id": "{{global.baseUrl}}{{#if slug}}{{slug}}{{else}}{{id}}-{{replace name " " "-"}}{{/if}}",
+			 "name": "{{name}}"
+		   }
+		  }
+		 ]
+		}
+	</script>
+   <style>
+      div#instafeed {
+            display: flex;
+            flex-wrap: wrap;
+         }
+         div#instafeed a {
+            width: 33.3%;
+         }
+         div#instafeed a img {
+               width: 98%;
+            }
+   </style>
+</head>
+
 <body id="body" class="location-page">
-<div>Hello World</div>
+   <h2 style="text-align:center">Instagram feed for Deepblue</h2>
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
+   
+<div id="instafeed"></div>
+<script type="text/javascript">
+    var feed = new Instafeed({
+      accessToken: 'IGQVJWTlRGWUIyVVlrc2dodUJoNzQ5dVFZAZA3Fyc3RiRkRPTWxxUlZALT3VmcVQ4WUV3ajhMNHFyTUE2UEFMaldvc240RXo4VWhUZAzYxZADgzVEdWOXBGU29YRnNfU3loX2dILUlLS0h0VWYyNC1OeE8zZAAZDZD'
+    });
+    feed.run();
+</script>
+
+   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script> 
+   <script>
+      {{#if c_images}}
+      var splide = new Splide('#splide', {
+         perPage: 1,
+         perMove: 1,
+         pagination: false,
+         lazyLoad: 'nearby',
+         arrows: ($("ul.splide__list li").length > 1)?true:false,
+         breakpoints: {
+            1279: {perPage: 1,},
+            767: {perPage: 1,},
+            575: {
+               perPage: 1,
+               focus: 'center',
+               padding: '0px',
+               type: 'loop',
+            }
+         },
+      });
+      splide.mount();{{/if}}	  
+
+      document.getElementById("order-top")?.addEventListener("click", function () {
+         document.getElementById('order-popup').classList.remove("hidden");
+         document.getElementById('body').classList.add("overflow-hidden");
+      }, { passive: true });
+
+      document.getElementById("allergens-top1")?.addEventListener("click", function () {
+         document.getElementById('order-popup').classList.remove("hidden");
+         document.getElementById('body').classList.add("overflow-hidden");
+      }, { passive: true });
+   </script>
 </body>
 </html>
