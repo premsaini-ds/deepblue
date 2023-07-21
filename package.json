@@ -53,6 +53,7 @@
     "@types/jquery": "^3.5.14",
     "@yext/rtf-converter": "^1.5.0",
     "axios": "^0.21.1",
+    "instafeed.js": "^2.0.0",
     "jquery": "^3.6.0",
     "libphonenumber-js": "^1.9.22",
     "tw-elements": "^1.0.0-alpha12"

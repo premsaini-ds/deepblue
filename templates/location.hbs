@@ -59,7 +59,8 @@
    <meta name="twitter:image" content="{{global.baseUrl}}images/answer_logo.png" />
    <meta name="twitter:url" content="{{global.baseUrl}}{{#if slug}}{{slug}}{{else}}{{id}}-{{replace name " " "-"}}{{/if}}" />
    <meta property="og:url" content="{{global.baseUrl}}{{#if slug}}{{slug}}{{else}}{{id}}-{{replace name " " "-"}}{{/if}}" />
-
+  
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
    <script type="application/ld+json">
 		{
 		 "@context": "https://schema.org",
@@ -108,11 +109,13 @@
    <h2 style="text-align:center">Location - {{name}}</h2>
    <h2 style="text-align:center">Instagram feed for Deepblue</h2>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
+
 <div id="instafeed"></div>
+
+<script></script>
 <script type="text/javascript">
     var feed = new Instafeed({
-      accessToken: 'IGQVJWOE9DWmVLdG1VeHFhazVRNVQzbmkzVVpkOHVzRXcwMFVrLXJDMTlpQXREMDNSaTNYVzFMZAWFjY2RQTGl3cmRBbGJiMEZAHdTVuTUswU1FVQzMxTVhXQXdRZAFFrVGlRblVZAZAFkwSWZAkZAVlVZAlNXMAZDZD'
+      accessToken: 'IGQVJWWUZAoVndKMi0yaTQtNEFtOThrMmYtMDdxbkRueW41bjhXQmJyc2V0azN3aUViQjZAYY3JJdERYUF83Y200WkVlWjhEVEpjZAkVFeXpSdzlST2dIT3N5WUxCT0Vld0dZAWERMWDdfTkdQdHhpT1JGVAZDZD'
     });
     feed.run();
 </script>
